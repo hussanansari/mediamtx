@@ -161,6 +161,10 @@ func (pa *path) Name() string {
 	return pa.name
 }
 
+func (pa *path) isReady() bool {
+	return pa.stream != nil
+}
+
 func (pa *path) run() {
 	defer close(pa.done)
 	defer pa.wg.Done()
